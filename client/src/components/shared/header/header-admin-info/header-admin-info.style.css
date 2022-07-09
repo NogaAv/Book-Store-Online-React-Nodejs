@@ -1,0 +1,49 @@
+.admin-img-container {
+    display: flex;
+    position: relative;
+    left: 200px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-img {
+    height: 40px;
+}
+
+.logged-admin-info {
+    display: flex;
+    justify-content: space-between;
+    min-width: 50px;
+}
+
+@media (max-width: 1100px) {
+    .admin-img-container {
+        position: static;
+    }
+}
+
+@media (max-width: 700px) {
+    .admin-img {
+        max-height: 30px;
+    }
+    .admin-name {
+        font-size: 12px;
+        line-break: auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .admin-img-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .admin-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

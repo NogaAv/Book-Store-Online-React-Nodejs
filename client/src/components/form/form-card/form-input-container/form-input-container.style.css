@@ -1,0 +1,12 @@
+.form-input-container {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 450px) {
+    .form-input-container {
+        min-width: 0px;
+        max-width: 250px;
+    }
+}

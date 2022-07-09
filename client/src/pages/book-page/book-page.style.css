@@ -1,0 +1,19 @@
+.main-book-page {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-page-price {
+    margin-top: 60px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.add-crt-btn {
+    width: 70%;
+    margin-top: 8px;
+}

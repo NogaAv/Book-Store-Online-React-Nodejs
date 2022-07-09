@@ -1,0 +1,49 @@
+.mode-switch-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 80px;
+    top: 10px;
+    cursor: pointer;
+    max-width: 100px;
+    text-align: center;
+    padding: 2px;
+    color: white;
+    border: 1px black solid;
+    font-size: 12px;
+}
+.mode-switch-btn:active {
+    background: grey;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+    border: none;
+}
+.switch-modes-img {
+    max-height: 50px;
+}
+.admin-btn {
+    background-color: red;
+}
+
+.user-btn {
+    background-color: grey;
+}
+
+@media (max-width: 650px) {
+    .mode-switch-btn {
+        right: -15px;
+        top: 80px;
+    }
+    .switch-modes-img {
+        max-height: 40px;
+    }
+}
+@media (max-width: 600px) {
+    .mode-switch-btn {
+        max-width: 50px;
+        font-size: 12px;
+    }
+}

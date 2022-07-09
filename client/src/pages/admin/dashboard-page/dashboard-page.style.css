@@ -1,0 +1,9 @@
+.dashboard-main {
+    background-image: url();
+    background-color: blanchedalmond;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

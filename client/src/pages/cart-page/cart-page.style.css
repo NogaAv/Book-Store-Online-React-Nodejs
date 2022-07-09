@@ -1,0 +1,7 @@
+.main-cart-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF7I_UJBKRDEnqzDpfGmC4CDSc4138rSF-Eg&usqp=CAU');
+}

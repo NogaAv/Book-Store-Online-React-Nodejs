@@ -1,0 +1,27 @@
+.item-quantity-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 5px;
+    padding: 12px;
+}
+
+.item-quantity-container p {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.item-quantity-container button {
+    font-weight: bold;
+    background-color: bisque;
+    border: 1px gray solid;
+}
+.item-quantity-container button:active {
+    background: grey;
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+    -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+    border: none;
+}

@@ -1,0 +1,8 @@
+.book-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+    gap: 20px;
+}

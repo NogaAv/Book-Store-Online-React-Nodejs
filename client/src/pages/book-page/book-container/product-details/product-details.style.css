@@ -1,0 +1,14 @@
+.product-details-container {
+    width: calc(100vw - 10%);
+    min-height: 40px;
+    background-color: #f0f0f0;
+    padding: 10px 25px 20px;
+    margin: 0px auto;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 2px #ffdab9 solid;
+}
+
+.details.list {
+    list-style-type: style none;
+}

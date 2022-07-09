@@ -1,0 +1,81 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background-color: #f0f0f0;
+    width: 15%;
+    min-width: 100px;
+    height: 50%;
+    padding: 3px;
+}
+
+.sidebar .links-container {
+    height: 70%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.link {
+    margin: 6px;
+}
+.link .text-link {
+    color: blue;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.sidebar .x-btn {
+    position: absolute;
+    right: 3px;
+    width: 25px;
+    height: 25px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    margin-right: 10px;
+}
+
+@media (max-width: 1000px) {
+    .sidebar .links-container {
+        padding: 10px;
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 700px) {
+    .sidebar .links-container {
+        padding: 0;
+        margin-left: 0;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 350px) {
+    .backdrop {
+        background-color: rgba(0, 0, 0, 0.15);
+        padding: 0px;
+    }
+
+    .sidebar {
+        border-radius: 0;
+    }
+}

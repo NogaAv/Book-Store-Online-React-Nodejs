@@ -1,0 +1,17 @@
+.link-to-login {
+    color: blue;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 35px auto;
+    width: 80%;
+    text-decoration: none;
+    text-align: center;
+}
+.signup-form .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

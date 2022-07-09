@@ -1,0 +1,12 @@
+.link-to-signup {
+    color: blue;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 35px auto;
+    width: 300;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    text-align: center;
+}

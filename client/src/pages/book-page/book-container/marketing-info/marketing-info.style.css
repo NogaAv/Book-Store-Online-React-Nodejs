@@ -1,0 +1,13 @@
+.marketing-info {
+    min-width: 280px;
+    height: 400px;
+    background-color: #f0f0f0;
+    font-size: 14px;
+    border-radius: 12px;
+    border: 2px #ffdab9 solid;
+}
+.container {
+    height: 70%;
+    padding: 30px 20px;
+    max-width: 320px;
+}
