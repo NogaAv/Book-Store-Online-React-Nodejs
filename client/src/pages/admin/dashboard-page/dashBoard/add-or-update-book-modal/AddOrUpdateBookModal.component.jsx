@@ -16,6 +16,7 @@ const AddOrUpdateBookModal = (props) => {
     const [rating, setRating] = useState(0);
     const [updateRatingEnabeled, setUpdateRatingEnabeled] = useState(false);
     const [editSelected, setEditSelected] = useState(true);
+    const [formSectionsFilledState, setFormSectionsFilledState] = useState(1);
     const [options, setOptions] = useState([]);
     const { bookFormState } = props;
 
@@ -50,6 +51,23 @@ const AddOrUpdateBookModal = (props) => {
             setClear(false);
         }, 1);
         props.dipatchBookReducer(updateState(updateActionType.RESET_STATE));
+    };
+
+    const continueToNextForm = () => {
+        if (
+            props.title.includes('Add') &&
+            (bookFormState.values.title === '' ||
+                bookFormState.values.author === '' ||
+                bookFormState.values.description === '')
+        ) {
+            alert('Please fill all form sections to continue');
+        } else {
+            setFormSectionsFilledState(2);
+        }
+    };
+    const toPreviousForm = () => {
+        setFormSectionsFilledState(1);
+        clearForm();
     };
 
     const handleRating = (rate) => {
@@ -90,25 +108,29 @@ const AddOrUpdateBookModal = (props) => {
                     title={props.title}
                     onSubmit={props.onSubmit || (editSelected ? props.editBookOnSubmit : props.deleteBookOnSubmit)}
                 >
-                    {props.handelupdate && (
+                    {props.handelupdate && formSectionsFilledState === 1 && (
                         <div className="selections-container">
                             <div className={`radio-selection ${!editSelected ? 'small-display' : ''}`}>
-                                <input
-                                    type="radio"
-                                    value="edit"
-                                    name="operation"
-                                    checked={editSelected}
-                                    onChange={handelEdit}
-                                />
-                                <b>Edit</b>
-                                <input
-                                    type="radio"
-                                    value="delete"
-                                    name="operation"
-                                    checked={!editSelected}
-                                    onChange={handelDelete}
-                                />
-                                <b>Delete</b>
+                                <div id="edit">
+                                    <input
+                                        type="radio"
+                                        value="edit"
+                                        name="operation"
+                                        checked={editSelected}
+                                        onChange={handelEdit}
+                                    />
+                                    <b>Edit</b>
+                                </div>
+                                <div id="delete">
+                                    <input
+                                        type="radio"
+                                        value="delete"
+                                        name="operation"
+                                        checked={!editSelected}
+                                        onChange={handelDelete}
+                                    />
+                                    <b>Delete</b>
+                                </div>
                             </div>
                             <Select options={options} onChange={getValue} defaulyValue="" className="select" />
                         </div>
@@ -116,112 +138,124 @@ const AddOrUpdateBookModal = (props) => {
 
                     {editSelected && (
                         <div className="form-sections">
-                            <div className="form-section">
-                                <FormInputContainer
-                                    id="title"
-                                    labelText="Title:"
-                                    required={props.required.title}
-                                    handleInput={props.handelTitle}
-                                    name="title"
-                                    isValid={bookFormState.validities.title}
-                                    errMsg={bookFormState.errMsgs.title}
-                                />
-                                <FormInputContainer
-                                    id="author"
-                                    labelText="Author:"
-                                    required={props.required.author}
-                                    handleInput={props.handelAuthor}
-                                    name="author"
-                                    isValid={bookFormState.validities.author}
-                                    errMsg={bookFormState.errMsgs.author}
-                                />
-                                <FormInputContainer
-                                    id="description"
-                                    labelText="Book description:"
-                                    required={props.required.description}
-                                    handleInput={props.handelDescription}
-                                    name="description"
-                                    scroll="scroll"
-                                    isValid={bookFormState.validities.description}
-                                    errMsg={bookFormState.errMsgs.description}
-                                />
-                                <div className="rating-container">
-                                    {props.handelupdate && (
-                                        <>
-                                            <label>
-                                                <input
-                                                    type="checkbox"
-                                                    checked={updateRatingEnabeled}
-                                                    onChange={handleChange}
-                                                />
-                                                Update Rating
-                                            </label>
-                                            {updateRatingEnabeled && (
+                            {formSectionsFilledState === 1 && (
+                                <div className="form-section">
+                                    <FormInputContainer
+                                        id="title"
+                                        labelText="Title:"
+                                        required={props.required.title}
+                                        handleInput={props.handelTitle}
+                                        name="title"
+                                        isValid={bookFormState.validities.title}
+                                        errMsg={bookFormState.errMsgs.title}
+                                    />
+                                    <FormInputContainer
+                                        id="author"
+                                        labelText="Author:"
+                                        required={props.required.author}
+                                        handleInput={props.handelAuthor}
+                                        name="author"
+                                        isValid={bookFormState.validities.author}
+                                        errMsg={bookFormState.errMsgs.author}
+                                    />
+                                    <FormInputContainer
+                                        id="description"
+                                        labelText="Book description:"
+                                        required={props.required.description}
+                                        handleInput={props.handelDescription}
+                                        name="description"
+                                        scroll="scroll"
+                                        isValid={bookFormState.validities.description}
+                                        errMsg={bookFormState.errMsgs.description}
+                                    />
+                                    <div className="rating-container">
+                                        {props.handelupdate && (
+                                            <>
+                                                <label>
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={updateRatingEnabeled}
+                                                        onChange={handleChange}
+                                                    />
+                                                    Update Rating
+                                                </label>
+                                                {updateRatingEnabeled && (
+                                                    <Rating
+                                                        className="rating"
+                                                        onClick={handleRating}
+                                                        ratingValue={rating}
+                                                        transition={true}
+                                                    />
+                                                )}
+                                            </>
+                                        )}
+                                        {!props.handelupdate && (
+                                            <>
+                                                <p>Rating:</p>
                                                 <Rating
                                                     className="rating"
                                                     onClick={handleRating}
                                                     ratingValue={rating}
                                                     transition={true}
                                                 />
-                                            )}
-                                        </>
-                                    )}
-                                    {!props.handelupdate && (
-                                        <>
-                                            <p>Rating:</p>
-                                            <Rating
-                                                className="rating"
-                                                onClick={handleRating}
-                                                ratingValue={rating}
-                                                transition={true}
-                                            />
-                                        </>
-                                    )}
+                                            </>
+                                        )}
+                                    </div>
+                                    <div className="update-operations-btn">
+                                        <CstmBtn className="update-operation-btn" onClick={clearForm}>
+                                            Clear
+                                        </CstmBtn>
+                                        <CstmBtn className="update-operation-btn" onClick={continueToNextForm}>
+                                            Next
+                                        </CstmBtn>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="form-section">
-                                <FormInputContainer
-                                    id="bookCover"
-                                    labelText="Book cover url:"
-                                    required={props.required.bookCover}
-                                    handleInput={props.handelBookCover}
-                                    name="bookCover"
-                                    isValid={bookFormState.validities.bookCover}
-                                    errMsg={bookFormState.errMsgs.bookCover}
-                                />
-                                <FormInputContainer
-                                    id="pages"
-                                    labelText="Number of pages:"
-                                    type="number"
-                                    required={props.required.pages}
-                                    handleInput={props.handelPagesCount}
-                                    name="pages"
-                                    isValid={bookFormState.validities.pages}
-                                    errMsg={bookFormState.errMsgs.pages}
-                                    minwidth="min-width"
-                                />
-                                <FormInputContainer
-                                    id="price"
-                                    labelText="Price:"
-                                    type="number"
-                                    step="0.01"
-                                    min="0"
-                                    required={props.required.price}
-                                    handleInput={props.handelPrice}
-                                    name="price"
-                                    isValid={bookFormState.validities.price}
-                                    errMsg={bookFormState.errMsgs.price}
-                                    minwidth="min-width"
-                                />
-                                <div className="update-operations-btn">
-                                    <CstmBtn className="update-operation-btn" type="submit">
-                                        Save
-                                    </CstmBtn>
-                                    <CstmBtn className="update-operation-btn" onClick={clearForm}>
-                                        Clear
-                                    </CstmBtn>
+                            )}
+                            {formSectionsFilledState === 2 && (
+                                <div className="form-section">
+                                    <FormInputContainer
+                                        id="bookCover"
+                                        labelText="Book cover url:"
+                                        required={props.required.bookCover}
+                                        handleInput={props.handelBookCover}
+                                        name="bookCover"
+                                        isValid={bookFormState.validities.bookCover}
+                                        errMsg={bookFormState.errMsgs.bookCover}
+                                    />
+                                    <FormInputContainer
+                                        id="pages"
+                                        labelText="Number of pages:"
+                                        type="number"
+                                        required={props.required.pages}
+                                        handleInput={props.handelPagesCount}
+                                        name="pages"
+                                        isValid={bookFormState.validities.pages}
+                                        errMsg={bookFormState.errMsgs.pages}
+                                        minwidth="min-width"
+                                    />
+                                    <FormInputContainer
+                                        id="price"
+                                        labelText="Price:"
+                                        type="number"
+                                        step="0.01"
+                                        min="0"
+                                        required={props.required.price}
+                                        handleInput={props.handelPrice}
+                                        name="price"
+                                        isValid={bookFormState.validities.price}
+                                        errMsg={bookFormState.errMsgs.price}
+                                        minwidth="min-width"
+                                    />
+                                    <div className="update-operations-btn">
+                                        <CstmBtn className="update-operation-btn" onClick={toPreviousForm}>
+                                            Start over
+                                        </CstmBtn>
+                                        <CstmBtn className="update-operation-btn" type="submit">
+                                            Save
+                                        </CstmBtn>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     )}
                     {!editSelected && (

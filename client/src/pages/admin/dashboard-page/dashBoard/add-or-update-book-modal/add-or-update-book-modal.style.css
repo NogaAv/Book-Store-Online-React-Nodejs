@@ -1,11 +1,11 @@
 .update-operation-btn {
-    max-height: 60px;
+    max-height: 30px;
     margin: 0 20px;
 }
 .update-operations-btn {
     display: flex;
     justify-content: space-evenly;
-    margin: 50px 0px;
+    margin-top: 10px;
 }
 
 .form-sections {
@@ -23,7 +23,7 @@
 
 .rating-container {
     align-items: flex-start;
-    margin: 10px 0px 10px 35px;
+    margin-left: 35px;
 
     min-width: 300px;
     display: flex;
@@ -47,11 +47,17 @@
 }
 
 .selections-container .small-display {
-    text-align: center;
-    min-width: 200px;
+    min-width: 100px;
 }
 
 .radio-selection {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+#edit,
+#delete {
+    min-width: 80px;
 }
 .radio-selection input {
     margin-left: 12px;
@@ -72,5 +78,13 @@
         min-width: 70px;
         width: 100px;
         margin-right: 10px;
+    }
+}
+
+@media (max-width: 450px) {
+    .rating-container {
+        min-width: 0px;
+        max-width: 300px;
+        margin: 10px 0px;
     }
 }

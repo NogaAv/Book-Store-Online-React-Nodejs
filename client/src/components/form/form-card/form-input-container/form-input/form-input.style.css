@@ -16,7 +16,7 @@
 }
 
 .scroll {
-    min-height: 100px;
+    min-height: 80px;
     display: flex;
     flex-wrap: wrap;
     text-align: justify;

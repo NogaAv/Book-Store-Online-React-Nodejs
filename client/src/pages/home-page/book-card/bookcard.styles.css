@@ -16,6 +16,7 @@
 .item .book-covers {
     max-width: 95%;
     max-height: 180px;
+    margin-top: 10px;
 }
 
 .item .item-info {

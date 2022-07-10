@@ -1,7 +1,7 @@
 .form-card {
     background-color: #f0f0f0;
-    max-height: 90%;
-    max-width: 95%;
+    max-height: 95%;
+    max-width: 80%;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -17,12 +17,13 @@
     width: 100%;
 }
 .form-card .form-header {
-    margin-top: 15px;
     width: 200px;
     text-align: center;
+    font-size: 18px;
+    margin-bottom: 0px;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1200px) {
     .form-card {
         max-height: 90%;
         max-width: 80%;
