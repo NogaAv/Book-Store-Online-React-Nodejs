@@ -16,7 +16,7 @@ const AddOrUpdateBookModal = (props) => {
     const [rating, setRating] = useState(0);
     const [updateRatingEnabeled, setUpdateRatingEnabeled] = useState(false);
     const [editSelected, setEditSelected] = useState(true);
-    const [formSectionsFilledState, setFormSectionsFilledState] = useState(1);
+    const [addFormSectionFilled, setAddFormSectionFilled] = useState(false);
     const [options, setOptions] = useState([]);
     const { bookFormState } = props;
 
@@ -62,11 +62,11 @@ const AddOrUpdateBookModal = (props) => {
         ) {
             alert('Please fill all form sections to continue');
         } else {
-            setFormSectionsFilledState(2);
+            setAddFormSectionFilled(true);
         }
     };
     const toPreviousForm = () => {
-        setFormSectionsFilledState(1);
+        setAddFormSectionFilled(false);
         clearForm();
     };
 
@@ -108,7 +108,7 @@ const AddOrUpdateBookModal = (props) => {
                     title={props.title}
                     onSubmit={props.onSubmit || (editSelected ? props.editBookOnSubmit : props.deleteBookOnSubmit)}
                 >
-                    {props.handelupdate && formSectionsFilledState === 1 && (
+                    {props.handelupdate && !addFormSectionFilled && (
                         <div className="selections-container">
                             <div className={`radio-selection ${!editSelected ? 'small-display' : ''}`}>
                                 <div id="edit">
@@ -138,7 +138,7 @@ const AddOrUpdateBookModal = (props) => {
 
                     {editSelected && (
                         <div className="form-sections">
-                            {formSectionsFilledState === 1 && (
+                            {!addFormSectionFilled && (
                                 <div className="form-section">
                                     <FormInputContainer
                                         id="title"
@@ -211,7 +211,7 @@ const AddOrUpdateBookModal = (props) => {
                                     </div>
                                 </div>
                             )}
-                            {formSectionsFilledState === 2 && (
+                            {addFormSectionFilled && (
                                 <div className="form-section">
                                     <FormInputContainer
                                         id="bookCover"
