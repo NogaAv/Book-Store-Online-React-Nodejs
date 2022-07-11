@@ -24,12 +24,12 @@ checkout if he wishes too.
 
 # How To Install
 
-Git clone
+Git clone https://github.com/NogaAv/Book-Store-Online-React-Nodejs.git
+
 
 git clone 
 
-
-* Instructions
+## Instructions
 
 - After cloning the the repository, run 'npm i' in order to install all the dependencies.
 - Fill in all the values of the env variables in 'dev.env' files under client and server folders, so that the application will run properly during development mode.
