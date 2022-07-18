@@ -1,5 +1,5 @@
 # Book-Store-Online-React-Nodejs
-Online book store web app assignment. 
+Online book store web app. 
 Client-side built with React, Server-side built with Node.js and Express Framework with javascript. 
 Database connection with Mongoose (ODM) and supports authentication and authorization with JWT. 
 
