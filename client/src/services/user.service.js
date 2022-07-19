@@ -17,7 +17,7 @@ export const signup = async (data) => {
     return payload;
 };
 
-export const getAccount = async (userToken) => {
+export const getUserAccount = async (userToken) => {
     const response = await fetch(`${API_URL}/user/accountInfo`, {
         headers: {
             'Authorization': `Bearer ${userToken}`,

@@ -12,7 +12,6 @@ import SignupPage from './pages/signup-page/SignupPage.component.jsx';
 import CartPage from './pages/cart-page/CartPage.component.jsx';
 import BookPage from './pages/book-page/BookPage.component.jsx';
 import PageNotFound from './pages/page-not-found/PageNotFound.component.jsx';
-import ModeSwitch from './components/shared/mode-switch/ModeSwitch.component.jsx';
 import DashBoardPage from './pages/admin/dashboard-page/DashBoardPage.component.jsx';
 
 const App = () => {

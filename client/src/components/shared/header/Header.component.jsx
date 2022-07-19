@@ -10,7 +10,8 @@ import HeaderUserInfo from './header-user-info/HeaderUserInfo.component.jsx';
 import HeaderAdminInfo from './header-admin-info/HeaderAdminInfo.component.jsx';
 import HumburgerBtn from './humburger-btn/HumburgerBtn.component.jsx';
 import Sidebar from '../sideBar/Sidebar.component.jsx';
-import { getAccount } from '../../../services/user.service.js';
+import { getUserAccount } from '../../../services/user.service.js';
+import { getAdminAccount } from '../../../services/admin.service.js';
 import { USER_NAME, ADMIN_NAME } from '../../../constants/constants.js';
 
 import bookIcon from '../../../assets/img/book-icon.png';
@@ -40,7 +41,7 @@ const Header = () => {
         if (isUserLogged && !userContextValue.firstName) {
             const getUserAccountInfo = async () => {
                 try {
-                    const { data } = await getAccount(authContextValue.userToken);
+                    const { data } = await getUserAccount(authContextValue.userToken);
                     const { cart, user } = data;
                     userContextValue.setFirstName(user.firstName);
                     localStorage.setItem(USER_NAME, user.firstName);
@@ -52,7 +53,18 @@ const Header = () => {
 
             getUserAccountInfo();
         } else if (isAdminLogged && !userContextValue.firstName) {
-            userContextValue.setFirstName(localStorage.getItem(ADMIN_NAME));
+            const getAdminAccountInfo = async () => {
+                try {
+                    const { data } = await getAdminAccount(authContextValue.adminToken);
+                    const { admin } = data;
+                    userContextValue.setFirstName(admin.firstName);
+                    localStorage.setItem(ADMIN_NAME, admin.firstName);
+                } catch (err) {
+                    console.log(err.message);
+                }
+            };
+
+            getAdminAccountInfo();
         }
     }, []);
 

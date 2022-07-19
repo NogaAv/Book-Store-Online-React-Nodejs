@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
-import { securityModeContext } from './SecurityMode.context';
+import React, { createContext, useState } from 'react';
 
 export const UserContext = createContext();
 
