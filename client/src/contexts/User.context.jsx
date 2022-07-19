@@ -1,15 +1,8 @@
-import React, { createContext, useContext, useState } from 'react';
-import { securityModeContext } from './SecurityMode.context';
+import React, { createContext, useState } from 'react';
 
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
-    //This section cannot be inside securityModeContext component (because re-render problem if I call setSecModesState inside it)
-    //TODO: consider exporting it to 'securityModeContextInit' component located between securityModeContext and this component)
-    // const securityModeContextval = useContext(securityModeContext);
-    // const currentSecModeState = +localStorage.getItem('security-mode-state');
-    // securityModeContextval.setSecModesState(currentSecModeState);
-    ////////////////////////////////////////////////////////////////////
 
     const [firstName, setFirstName] = useState('');
 
