@@ -101,14 +101,14 @@ const UpdateBookModal = (props) => {
     };
 
     const handelAuthor = (event) => {
-        const inputAuthor = event.target.value.trim().toLowerCase();
+        const inputAuthor = event.target.value.trim();
         const field = event.target.name;
 
         dipatchBookReducer(updateState(field, inputAuthor, true, ''));
     };
 
     const handelBookCover = (event) => {
-        const inputBookCover = event.target.value.trim().toLowerCase();
+        const inputBookCover = event.target.value.trim();
         const field = event.target.name;
 
         if (!isURL(inputBookCover)) {
@@ -119,7 +119,7 @@ const UpdateBookModal = (props) => {
     };
 
     const handelDescription = (event) => {
-        const inputDescription = event.target.value.trim().toLowerCase();
+        const inputDescription = event.target.value.trim();
         const field = event.target.name;
 
         dipatchBookReducer(updateState(field, inputDescription, true, ''));
