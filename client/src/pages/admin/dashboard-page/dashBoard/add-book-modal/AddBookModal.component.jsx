@@ -69,7 +69,7 @@ const AddBookModal = (props) => {
     };
 
     const handelAuthor = (event) => {
-        const inputAuthor = event.target.value.trim().toLowerCase();
+        const inputAuthor = event.target.value.trim();
         const field = event.target.name;
 
         if (inputAuthor === '') {
@@ -80,7 +80,7 @@ const AddBookModal = (props) => {
     };
 
     const handelBookCover = (event) => {
-        const inputBookCover = event.target.value.trim().toLowerCase();
+        const inputBookCover = event.target.value.trim();
         const field = event.target.name;
 
         if (inputBookCover === '') {
@@ -93,7 +93,7 @@ const AddBookModal = (props) => {
     };
 
     const handelDescription = (event) => {
-        const inputDescription = event.target.value.trim().toLowerCase();
+        const inputDescription = event.target.value.trim();
         const field = event.target.name;
         if (inputDescription === '') {
             dipatchBookReducer(updateState(field, inputDescription, false, `Book description is required!`));
