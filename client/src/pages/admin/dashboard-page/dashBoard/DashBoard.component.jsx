@@ -32,7 +32,7 @@ const DashBoard = () => {
                 Update
                 <img className="book-icon" src={editBookIcon} alt="" />
             </CstmBtn>
-            {(show & 0x2) !== 0 && <UpdateBookModal title="Update Book" setShow={hideModal} />}
+            {(show & 0x2) !== 0 && <UpdateBookModal title="Update or Delete Book" setShow={hideModal} />}
         </div>
     );
 };
